@@ -9,46 +9,64 @@
 <body>
     <div class="header">
         <h1>Odin Library</h1>
-        <button>Add Book</button>
+        <button id="add-book-button">+ Add Book</button>
     </div>
         <div class="books">
             <div class="card">
-                <img src="image1.jpg" alt="Book 1">
                 <h3>Book Title 1</h3>
                 <p>Author: Author 1</p>
                 <p>Price: $19.99</p>
                 <button>View Details</button>
             </div>
             <div class="card">
-                <img src="image2.jpg" alt="Book 2">
                 <h3>Book Title 2</h3>
                 <p>Author: Author 2</p>
                 <p>Price: $15.99</p>
                 <button>View Details</button>
             </div>
             <div class="card">
-                <img src="image3.jpg" alt="Book 3">
                 <h3>Book Title 3</h3>
                 <p>Author: Author 3</p>
                 <p>Price: $25.99</p>
                 <button>View Details</button>
             </div>
             <div class="card">
-                <img src="image4.jpg" alt="Book 4">
                 <h3>Book Title 4</h3>
                 <p>Author: Author 4</p>
                 <p>Price: $12.99</p>
                 <button>View Details</button>
             </div>
             <div class="card">
-                <img src="image5.jpg" alt="Book 5">
                 <h3>Book Title 5</h3>
                 <p>Author: Author 5</p>
                 <p>Price: $18.99</p>
                 <button>View Details</button>
             </div>
         </div>
-    
+        <div class="overlay" id="overlay">
+            <form>
+                <h2>Add a New Book</h2>
+                <label for="title">Title:</label>
+                <input id="title" name="title" type="text" required>
+                
+                <label for="author">Author:</label>
+                <input id="author" name="author" type="text" required>
+                
+                <label for="pages">Number of pages:</label>
+                <input id="pages" name="pages" type="number" required>
+                
+               <label>Reading Status:</label>
+               <input id="read" type="radio" name="status" value="read" checked >
+               <label for="read" class="radio-label">Read</label>
+               <input id="not-read" type="radio" name="status" value="not-read">
+               <label for="not-read" class="radio-label">Not read</label>
+               
+               <div class="overlay-button">
+                <button type="submit" id="submit-book-button">Add book</button>
+                <button type="button" id="cancel-button">Cancel</button>
+               </div>
+            </form>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
