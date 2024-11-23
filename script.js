@@ -20,15 +20,24 @@ overlay.addEventListener('click', (event)=>{
         overlay.style.display = 'none';
     }
 });
+
+function addBooks(title, author, pages, status){
+    const newBook = new Book(title, author, pages, status);
+    myLibrary.push(newBook);
+    bookCard();
+}
 // form value
 form.addEventListener('submit', (event)=>{
     event.preventDefault();
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    const statusValue = document.querySelector('input[type="radio"]:checked').value;
-});
+    const status = document.querySelector('input[type="radio"]:checked').value;
 
+    addBooks(title, author, pages, status);
+    form.reset();
+    overlay.style.display = "none";
+});
 
 const myLibrary = [
     {title: "Atomic Habits", author: "James Clear", pages: 320, status: "read"},
@@ -68,11 +77,19 @@ function bookCard(){
 
                 bookContainer.appendChild(card);
 
+                //toggle status button
                 const statusButton = card.querySelector('.status-button');
                 statusButton.addEventListener('click', ()=>{
                     book.status = book.status === "read"? "not read":"read";
                     statusButton.textContent = book.status;
                 });
+
+                //remove button
+                const removeBookButton = card.querySelector('.close-button');
+                removeBookButton.addEventListener('click', ()=>{
+                    myLibrary.splice(index, 1);
+                    bookCard();
+                })
             });
 }
 bookCard();
